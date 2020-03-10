@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %} {# bolck标记可填充块 #}
+    <meta charset="UTF-8">
+    <title>{% block title %}My Application{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2020 by <a href="http://2x994648y1.qicp.vip/">米筱sama</a>.
+        {% endblock %}
+    </div>
+</body>
+</html>
